@@ -21,7 +21,7 @@ def default():
     newGame()
     enviroment = Environment(loader=FileSystemLoader("Template/"))
     template = enviroment.get_template("base.html")
-    info = {"tokens1": session['tokens1'],"tokens2": session['tokens2'], "playerActive": session["playerActive"], "board": session["board"]}
+    info = {"tokens1": session['tokens1'],"tokens2": session['tokens2'], "board": session["board"]}
     contingut = template.render(info)
     return f'{contingut}'
 
@@ -38,8 +38,7 @@ def move():
         session["playerActive"] = 1
         session["tokens1"] = 1
         session["tokens2"] = 0
-    info = {"tokens1": session['tokens1'], "tokens2": session['tokens2'], "playerActive": session["playerActive"],
-            "board": session["board"]}
+    info = {"tokens1": session['tokens1'], "tokens2": session['tokens2'], "board": session["board"]}
     enviroment = Environment(loader=FileSystemLoader("Template/"))
     template = enviroment.get_template("base.html")
     contingut = template.render(info)
